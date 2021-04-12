@@ -47,11 +47,9 @@ public class NextBirthday {
             }
         }
 
-        //Вычисляем разницу между следующим днем рождения и текущей датой
-        nextDateBirth.setTimeInMillis(
-                nextDateBirth.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()
-        );
-        System.out.println("\nDays left until birthday:\n" + nextDateBirth.get(Calendar.DAY_OF_YEAR));
+        //Вычисляем разницу между следующим днем рождения и текущей датой в миллисекундах, переводим в миллисекунды в дни
+        double nextDays = (nextDateBirth.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()) / 86400000.0;
+        System.out.println("\nDays left until birthday:\n" + nextDays);
     }
 
     public static void main(String[] args) {

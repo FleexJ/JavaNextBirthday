@@ -1,5 +1,4 @@
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class NextBirthday {
@@ -26,7 +25,7 @@ public class NextBirthday {
                 day = Integer.parseInt(inputSplit[0]);
                 month = Integer.parseInt(inputSplit[1]) - 1;
                 year = Integer.parseInt(inputSplit[2]);
-                if (month > 11) {
+                if (month > 11 || month < 0) {
                     System.out.println("Incorrect date!");
                     continue;
                 }
@@ -47,7 +46,7 @@ public class NextBirthday {
             }
         }
 
-        //Вычисляем разницу между следующим днем рождения и текущей датой в миллисекундах, переводим в миллисекунды в дни
+        //Вычисляем разницу между следующим днем рождения и текущей датой в миллисекундах, переводим миллисекунды в дни
         double nextDays = (nextDateBirth.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()) / 86400000.0;
         System.out.println("\nDays left until birthday:\n" + nextDays);
     }

@@ -5,7 +5,6 @@ public class NextBirthday {
 
     public static void calculateNextBirthday() {
         Calendar dateBirth = Calendar.getInstance();
-        Calendar now = Calendar.getInstance();
         int day, month, year;
 
         Scanner scanner = new Scanner(System.in);
@@ -14,6 +13,7 @@ public class NextBirthday {
             //Считывание даты
             System.out.print("\nEnter your date of birth: ");
             String input = scanner.nextLine();
+            Calendar now = Calendar.getInstance();
 
             //Если введенная дата не подходит под формат
             if (!input.matches("^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,4}$")) {
@@ -43,7 +43,7 @@ public class NextBirthday {
         }
 
         //Вычисляем разницу между следующим днем рождения и текущей датой в миллисекундах, переводим миллисекунды в дни
-        double nextDays = (dateBirth.getTimeInMillis() - now.getTimeInMillis()) / 86400000.0;
+        double nextDays = (dateBirth.getTimeInMillis() - Calendar.getInstance().getTimeInMillis()) / 86400000.0;
         System.out.println("\nDays left until birthday:\n" + nextDays);
     }
 
